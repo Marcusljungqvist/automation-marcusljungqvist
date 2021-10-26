@@ -4,7 +4,7 @@
 describe('Create', function(){
 
     //This is a test case
-    it('Create an account and delete it', function(){
+    it('Create a client and delete it', function(){
         cy.visit('http://localhost:3000')
         cy.title().should('include', 'Hotel')
         cy.contains('Login')
