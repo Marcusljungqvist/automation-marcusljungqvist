@@ -15,7 +15,10 @@ describe('Create', function(){
         cy.contains('Tester Hotel Overview')
         cy.get('.blocks > :nth-child(2) > .btn').click()
         cy.contains('Create Client')
+
+        //navigating to create client page
         cy.get('h2 > .btn').click()
+        cy.contains('New Client')
 
         //typing in account information
         cy.get(':nth-child(1) > input').type("Marcus Ljungqvist")
@@ -30,7 +33,7 @@ describe('Create', function(){
         //deleting newly created account
         cy.get(':nth-child(3) > .action > img').click()
         cy.get('.menu > :nth-child(2)').click()
-        cy.contains('Hellman')
+        cy.contains('Marcus Ljungqvist').should('not.exist')
 
         //logging out
         cy.get('.user > .btn').click()
