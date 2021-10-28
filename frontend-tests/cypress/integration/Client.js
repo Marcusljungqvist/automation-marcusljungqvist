@@ -1,10 +1,11 @@
 /// <reference types="cypress" />
 
-//This is a test suite
-describe('Create', function(){
+//Test suite 'Client'
+describe('Client', function(){
 
-    //This is a test case
-    it('Create a client and delete it', function(){
+//Test case 'login and create client'
+    it('Create a client', function(){
+
         cy.visit('http://localhost:3000')
         cy.title().should('include', 'Hotel')
         cy.contains('Login')
@@ -16,31 +17,30 @@ describe('Create', function(){
         cy.get('.blocks > :nth-child(2) > .btn').click()
         cy.contains('Create Client')
 
-        //navigating to create client page
+    //navigating to create client page
         cy.get('h2 > .btn').click()
         cy.contains('New Client')
 
-        //typing in account information
+    //typing in account information
         cy.get(':nth-child(1) > input').type("Marcus Ljungqvist")
         cy.get(':nth-child(2) > input').type("Ljungqvist_Marcus@hotmail.com")
         cy.get(':nth-child(3) > input').type("0736637002")
 
-        //pushing save button to create account
+    //pushing save button to create account
         cy.get('.blue').click()
         cy.title().should('include', 'Hotel')
         cy.contains('Marcus Ljungqvist')
-
-        //deleting newly created account
+    })
+    //Test case 'delete account'
+        it('delete account', function(){
+    //deleting newly created account
         cy.get(':nth-child(3) > .action > img').click()
         cy.get('.menu > :nth-child(2)').click()
         cy.contains('Marcus Ljungqvist').should('not.exist')
 
-        //logging out
+    //logging out
         cy.get('.user > .btn').click()
-
-        
-
+        cy.contains('Login')
+        })
 
     })
-
-})
