@@ -29,9 +29,6 @@ describe('Billing', function(){
         cy.get(':nth-child(3) > .btn').click()
         cy.contains('Bills')
 
-        //Logout
-        //cy.get('.user > .btn').click()
-        //cy.contains('Login')
     })
 
     //Test case 'Pay a bill'
@@ -55,7 +52,7 @@ describe('Billing', function(){
 
         cy.get(':nth-child(2) > .action > img').click()
         cy.get('.menu > :nth-child(2)').click()
-
+    //Checking if ID: 2 is deleted
         cy.contains('ID: 2').should('not.exist')
 
     })

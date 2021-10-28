@@ -33,6 +33,7 @@ describe('Client', function(){
     })
     //Test case 'delete account'
         it('delete account', function(){
+            
     //deleting newly created account
         cy.get(':nth-child(3) > .action > img').click()
         cy.get('.menu > :nth-child(2)').click()
