@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 
-import * as targets from "../targets/targets"
 import * as login from "../pages/loginPage"
 import * as menu from "../pages/menuPage"
 import * as client from "../pages/clientPage"
@@ -24,18 +23,19 @@ describe('Client', function(){
         cy.get(':nth-child(2) > input').type("Ljungqvist_Marcus@hotmail.com")
         cy.get(':nth-child(3) > input').type("0736637002")
 
-    //pushing save button to create account
+        //pushing save button to create account
         cy.get('.blue').click()
         cy.title().should('include', 'Hotel')
         cy.contains('Marcus Ljungqvist')
     })
+
     //Test case 'delete account'
-        it('delete account', function(){
-            client.deleteClient3(cy)
+    it('delete account', function(){
+        //delete client 3
+        client.deleteClient3(cy)
 
-    //logging out
-        cy.get('.user > .btn').click()
-        cy.contains('Login')
-        })
-
+        //logging out
+        client.logoutFromClient(cy)
     })
+
+})
