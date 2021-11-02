@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+import targets, { loginPageCheck } from "../targets/targets"
 
 // Elements
     const roomsPageButton = 'div.block:nth-child(1) > a:nth-child(3)'
@@ -9,30 +10,37 @@
     const logoutButton = 'button.btn'
 
 // Actions
-    function enterRoomsPage() {
+    function enterRoomsPage(cy) {
         cy.get(roomsPageButton).click()
-        cy.contains('Rooms')
+        cy.contains(targets.roomPageCheck)
     }
 
-    function enterClientPage() {
+    function enterClientPage(cy) {
         cy.get(clientPageButton).click()
-        cy.contains('Clients')
+        cy.contains(targets.clientPageCheck)
     }
 
-    function enterBillsPage() {
+    function enterBillsPage(cy) {
         cy.get(billsPageButton).click()
-        cy.contains('Bills')
+        cy.contains(targets.billPageCheck)
     }
 
-    function enterReservationPage() {
+    function enterReservationPage(cy) {
         cy.get(reservationPageButton).click()
-        cy.contains('Reservations')
+        cy.contains(targets.reservationPageCheck)
     }
+
+    function logoutMenu(cy) {
+        cy.get(logoutButton).click()
+        cy.contains(targets.loginPageCheck)
+    }
+
 
 // Exports
 module.exports = {
     enterRoomsPage,
     enterClientPage,
     enterBillsPage,
-    enterReservationPage
+    enterReservationPage,
+    logoutMenu
 }

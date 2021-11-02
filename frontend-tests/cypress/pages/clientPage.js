@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-
+import * as targets from "../targets/targets"
 
 // Elements
     const createClient = 'h2 > .btn'
@@ -22,7 +22,7 @@
 // Actions
     function enterCreateClient(){
         cy.get(createClient).click()
-        cy.contains('New Client')
+        cy.contains(targets.newClientPageCheck)
     }
 
     function logoutFromClient() {
