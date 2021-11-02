@@ -12,9 +12,9 @@ const telText = ':nth-child(3) > input'
 
 // Actions
 function createClient (){
-    cy.get(nameText).type('Marcus Ljungqvist')
-    cy.get(emailText).type('Ljungqvist_Marcus@hotmail.com')
-    cy.get(telText).type('0736637002')
+    cy.get(nameText).type(targets.namn)
+    cy.get(emailText).type(targets.email)
+    cy.get(telText).type(targets.tel)
     cy.get(saveButton).click()
 }
 
