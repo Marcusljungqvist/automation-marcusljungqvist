@@ -8,6 +8,8 @@ import * as createClient from "../pages/createClientPage"
 import * as bill from "../pages/billPage"
 import * as editBill from "../pages/editBillPage"
 import * as createBill from "../pages/createBillPage"
+import * as roomFunctions from "../pages/roomPage"
+import * as newRoomFunctions from "../pages/newRoomPage"
 
 //Test suite by 'Marcus Ljungqvist'
 describe('My first test suite', function(){
@@ -26,28 +28,22 @@ describe('My first test suite', function(){
         //navigating to create client page
         menu.enterClientPage(cy)
 
-        //navigatin to new client page
+        //navigatin to new client pageS
         client.enterCreateClient(cy)
 
         //typing in account information and saving
         createClient.createClient()
-        cy.contains(targets.clientPageCheck)
-        cy.contains('Marcus Ljungqvist')
 
         //delete client 3
         client.deleteClient3(cy)
         })
     //test case 03
-    it('Create a bill and delete it', function(){
+    it('Create a bill', function(){
 
         //Create bill
         menu.enterBillsPage(cy)
-
         bill.createBillPage(cy)
-
         createBill.createBill(cy)
-
-        bill.deleteBill(cy)
 
     })
     //test case 04
@@ -63,7 +59,7 @@ describe('My first test suite', function(){
         editBill.editBill1(cy)
     })
     //test case 05
-    it('Pay a bill', function(){
+    it('Pay a bill and delete it', function(){
 
         //navigate to bills page
         menu.enterBillsPage(cy)
@@ -73,10 +69,22 @@ describe('My first test suite', function(){
 
         //edit bill #1
         editBill.payBill1(cy)
+        bill.deleteBill(cy)
     })
     //test case 06
-    it('Create a room', function(){
+    it('Create a room and delete it', function(){
         
+        //navigate to rooms page
+        menu.enterRoomsPage(cy)
+
+        //navigate to new room page
+        roomFunctions.createRoom(cy)
+
+        //create new room
+        newRoomFunctions.createNewRoom(cy)
+
+        //delete newly created room
+        roomFunctions.deleteRoom3(cy)
     })
 
 

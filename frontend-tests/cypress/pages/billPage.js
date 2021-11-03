@@ -17,7 +17,7 @@ function createBillPage (){
     cy.contains(targets.newBillPageCheck)
 }
 function editBill (){
-    cy.get(tools1).click()
+    cy.get(tools2).click()
     cy.get(editBills).click()
     cy.contains(targets.editBillPageCheck)
 }

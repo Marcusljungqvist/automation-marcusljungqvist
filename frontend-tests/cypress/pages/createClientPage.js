@@ -16,6 +16,8 @@ function createClient (){
     cy.get(emailText).type(targets.email)
     cy.get(telText).type(targets.tel)
     cy.get(saveButton).click()
+    cy.contains(targets.clientPageCheck)
+    cy.contains('Marcus Ljungqvist')
 }
 
 function backToMenu () {
