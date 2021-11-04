@@ -3,11 +3,6 @@ module.exports = {
     username: 'tester01',
     password: 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c',
 
-    //Information for new client
-    namn: 'Marcus Ljungqvist',
-    email: 'Ljungqvist_marcus@hotmail.com',
-    tel: '0736637002',
-
     //Information for new Room
     category: 'single',
     number: '2',

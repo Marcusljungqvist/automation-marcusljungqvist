@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+import faker from 'faker'
 import * as targets from "../targets/targets"
 
 // Elements
@@ -12,12 +13,17 @@ const telText = ':nth-child(3) > input'
 
 // Actions
 function createClient (){
-    cy.get(nameText).type(targets.namn)
-    cy.get(emailText).type(targets.email)
-    cy.get(telText).type(targets.tel)
+    let firstName = faker.name.firstName()
+    let lastName = faker.name.lastName()
+    let email = faker.internet.email()
+    let tel = faker.phone.phoneNumber()
+
+    cy.get(nameText).type(firstName + " " + lastName)
+    cy.get(emailText).type(email)
+    cy.get(telText).type(tel)
     cy.get(saveButton).click()
     cy.contains(targets.clientPageCheck)
-    cy.contains('Marcus Ljungqvist')
+    cy.contains(firstName + " " + lastName)
 }
 
 function backToMenu () {
